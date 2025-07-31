@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penilaian & Testimoni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #3f51b5;
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 15px;
+      display: block;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #3f51b5;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      width: 100%;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #303f9f;
+    }
+
+    #notif {
+      display: none;
+      background: #d0f0c0;
+      color: #000;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      animation: fadeInOut 4s ease forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(20px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .testimoni-section {
+      margin-top: 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .testimoni {
+      margin-bottom: 20px;
+      border-left: 4px solid #3f51b5;
+      padding-left: 15px;
+    }
+
+    .testimoni .nama {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #3f51b5;
+    }
+
+    .testimoni .rating {
+      color: #fbc02d;
+      margin-bottom: 5px;
+    }
+
+    .testimoni .pesan {
+      color: #444;
+      font-style: italic;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+    <footer>
+    <p>🎵 Klik Musik Di Bawah</p>
+    <audio autoplay loop controls>
+      <source src="selamanya.mp3" type="audio/mp3">
+      Browser Anda tidak mendukung audio.
+    </audio>
+  </footer>
+
+<nav style="background: #ffffff; padding: 15px 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: space-between;">
+  <div style="font-weight: 600; color: #3f51b5; font-size: 18px;">📋 Penilaian ZiiHost</div>
+  <a href="index.html" style="text-decoration: none; color: #3f51b5; font-weight: 500; font-size: 15px;">🏠 Kembali ke Beranda</a>
+</nav>
+
+  <div class="container">
+    <h1>Puas Dengan Produk Kami? Rate Di Bawah</h1>
+    <form onsubmit="kirimTestimoni(event)">
+      <label for="nama">Nama Anda</label>
+      <input type="text" id="nama" required>
+
+      <label for="rating">Rating</label>
+      <select id="rating" required>
+        <option value="★★★★★">★★★★★ - Sangat Puas</option>
+        <option value="★★★★☆">★★★★☆ - Puas</option>
+        <option value="★★★☆☆">★★★☆☆ - Cukup</option>
+        <option value="★★☆☆☆">★★☆☆☆ - Kurang</option>
+        <option value="★☆☆☆☆">★☆☆☆☆ - Buruk</option>
+      </select>
+
+      <label for="pesan">Ketik Prasaan Kamu Saat Beli Produk Kami:)</label>
+      <textarea id="pesan" rows="4" required></textarea>
+
+      <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+
+    <div id="notif"></div><div class="testimoni-section">
+  <h2>💬 Testimoni Pembeli</h2>
+
+  <!-- Testimoni lama -->
+  <div class="testimoni">
+    <div class="nama">🧑 Farhan</div>
+    <div class="rating">★★★★★</div>
+    <div class="pesan">"Panelnya cepat aktif dan supportnya ramah banget!"</div>
+  </div>
+
+  <div class="testimoni">
+    <div class="nama">👩‍💻 Sinta</div>
+    <div class="rating">★★★★☆</div>
+    <div class="pesan">"Bagus dan prosesnya lancar, sedikit delay tapi masih oke."</div>
+  </div>
+
+  <div class="testimoni">
+    <div class="nama">👨‍🔧 Riko</div>
+    <div class="rating">★★★★★</div>
+    <div class="pesan">"Langsung aktif! Harga murah tapi kualitas mantap!"</div>
+  </div>
+
+  <!-- Testimoni tambahan -->
+  <div class="testimoni">
+    <div class="nama">👨‍💼 Dimas</div>
+    <div class="rating">★★★★★</div>
+    <div class="pesan">"Respon cepat, langsung aktif dalam hitungan menit! 🔥"</div>
+  </div>
+
+  <div class="testimoni">
+    <div class="nama">👩‍🎓 Aulia</div>
+    <div class="rating">★★★★☆</div>
+    <div class="pesan">"Harga sesuai dompet pelajar, recommended banget! 💖"</div>
+  </div>
+
+  <div class="testimoni">
+    <div class="nama">👨‍💻 Sans Store</div>
+    <div class="rating">★★★★★</div>
+    <div class="pesan">"Sudah order 3x, hasil tetap memuaskan. Lanjut terus bang! 💪"</div>
+  </div>
+
+  <div class="testimoni">
+    <div class="nama">👩‍🦰 Rani</div>
+    <div class="rating">★★★★★</div>
+    <div class="pesan">"Suka tampilannya, bersih dan jelas. Admin juga ramah 😍"</div>
+  </div>
+
+  <div class="testimoni">
+    <div class="nama">👨‍🔬 Farel</div>
+    <div class="rating">★★★★☆</div>
+    <div class="pesan">"Agak delay tapi tetap worth it banget! 👍"</div>
+  </div>
+</div>
+
+ 
+    </div>
+  </div>
+
+
+
+  <script>
+    function kirimTestimoni(event) {
+      event.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const rating = document.getElementById("rating").value;
+      const pesan = document.getElementById("pesan").value;
+
+      const teks = `🧾 STRUK PENILAIAN 🧾\n\n👤 Nama: ${nama}\n⭐ Rating: ${rating}\n💬 Pesan: ${pesan}\n\nTerima kasih atas penilaiannya! 🙏`;
+      const nomorAdmin = "6285723904263";
+      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(teks)}`;
+
+      const notif = document.getElementById("notif");
+      notif.innerText = `✅ Penilaian dikirim!\nNama: ${nama}\nRating: ${rating}\nPesan: ${pesan}`;
+      notif.style.display = "block";
+
+      setTimeout(() => {
+        notif.style.display = "none";
+        window.open(url, "_blank");
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
